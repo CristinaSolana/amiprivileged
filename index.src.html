@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check My Privilege</title>
+<link rel="stylesheet" type="text/css" href="style.src.css">
+<script src="//use.typekit.net/ztb7waz.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/gif" href="favicon.gif" />
+</head>
+<body>
+
+<div class="brand">
+	<p>Am I Privileged? <small>Check all that apply.</small></p>
+</div>
+
+<div class="container">
+
+	<div class="checklist">
+		<input id="white" type="checkbox" class="privilege" value="white" />
+		<label for="white">
+			<span></span>
+			white</label>
+
+		<input id="male" type="checkbox" class="privilege" value="male" />
+		<label for="male">
+			<span></span>
+			male</label>
+
+		<input id="heterosexual" type="checkbox" class="privilege" value="heterosexual" />
+		<label for="heterosexual">
+			<span></span>
+			heterosexual</label>
+
+		<input id="developer-country" type="checkbox" class="privilege" value="developer-country" />
+		<label for="developer-country">
+			<span></span>
+			living in developed country</label>
+
+		<input id="not-disabled" type="checkbox" class="privilege" value="not-disabled" />
+		<label for="not-disabled">
+			<span></span>
+			without disabilities</label>
+	</div>
+
+	<div class="output"></div>
+
+</div>
+
+<footer>
+
+	<a href="https://twitter.com/share" class="twitter-share-button" data-text="I just checked my privilege, check yours: " data-via="nightshiftc" data-count="none" data-hashtags="checkYourPrivilege">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+	<span>&hearts;</span>
+	<a href="http://twitter.com/nightshiftc">Cristina</a>
+</footer>
+
+<script src="jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.privilege').on('change', function() {
+			if ( $('.privilege:checkbox').is(":checked") ) {
+				var $pCount = $('.privilege:checkbox:checked').length;
+				var $pValue = $(this).val();
+
+				switch ($pCount) {
+					case 1:
+						$('.output').html('<h5>Yes.</h5>');
+						break;
+					case 2:
+						$('.output').html('<h4>Yes!</h4>');
+						break;
+					case 3:
+						$('.output').html('<h3>Fuck yes!</h3>');
+						break;
+					case 4:
+						$('.output').html('<h2>Seriously?!</h2>');
+						break;
+					case 5:
+						$('.output').html('<h1>GTFO!</h1>');
+						break;
+					default:
+						$('.output').html('');
+				}
+
+				ga('send', 'event', 'privilege', 'click', $pValue, 0);
+
+			} else {
+				$('.output').html('');
+			}
+		});
+	});
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-55002151-1', 'auto');
+	ga('send', 'pageview');
+</script>
+</body>
+</html>
